@@ -28,7 +28,7 @@ router.post('/payment/:userId' ,signinRequire , isAuth, (req, res)=>{
      params['ORDER_ID']=  orderId;
      params['CUST_ID'] =`${ _id}`;
      params['TXN_AMOUNT'] = `${amount}`;
-     params['CALLBACK_URL'] = `http://localhost:${port}/paytm/kissme`
+     params['CALLBACK_URL'] = `http://ecommerceme.herokuapp.com:${port}/paytm/kissme`
      params['EMAIL'] =   email;
 
     checksum_lib.genchecksum(params , config.key , (err, checksum)=>{
@@ -132,7 +132,7 @@ router.post('/kissme',(req ,res)=>{
 
 
     })
-    res.status(200).redirect(`http://localhost:3000/cart`);
+    res.status(200).redirect(`http://ecommerceme1.herokuapp.com/account/cart`);
 
         
 
