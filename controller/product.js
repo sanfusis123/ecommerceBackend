@@ -121,7 +121,7 @@ exports.products = (req , res)=>{
 }
 
 exports.relatedProduct = (req , res)=>{
-      let limit = req.query.limit ? parseInt(req.query.limit) : 10;
+      let limit = req.query.limit ? parseInt(req.query.limit) : 9;
 
       Product.find({ _id : {$ne : req.product} , category : req.product.category})
              .limit(limit)
@@ -149,7 +149,7 @@ exports.categories = (req , res)=>{
 exports.searchProduct = (req,  res)=>{
       let order = req.body.order ? req.body.order : 'asc';
        let sortBy = req.body.sortBy ? req.body.sortBy :' _id';
-       let limit = req.body.limit ? parseInt(req.body.limit)  : 10;
+       let limit = req.body.limit ? parseInt(req.body.limit)  : 9;
        let skip  = parseInt(req.body.skip);
        let findArgs = {};
        
